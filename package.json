@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/dusksoft/kindeditor/issues"
   },
-  "homepage": "https://github.com/dusksoft/kindeditor#readme"
+  "homepage": "https://github.com/dusksoft/kindeditor#readme",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-compress": "^1.5.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.1"
+  }
 }

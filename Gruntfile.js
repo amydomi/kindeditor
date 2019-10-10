@@ -81,8 +81,8 @@ grunt.initConfig({
 			banner : BANNER,
 		},
 		build : {
-			src : '<%= pkg.filename %>-all.js',
-			dest : '<%= pkg.filename %>-all-min.js'
+			src : 'kindeditor-all.js',
+			dest : 'kindeditor-all-min.js'
 		}
 	},
 	compress : {
