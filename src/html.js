@@ -344,6 +344,9 @@ function _mediaType(src) {
 	if (/\.(swf|flv)(\?|$)/i.test(src)) {
 		return 'application/x-shockwave-flash';
 	}
+	if (/\.(mp4|mp5)(\?|$)/i.test(src)) {
+		return 'video/mp4';
+	}
 	return 'video/x-ms-asf-plugin';
 }
 // 根据 media type取得className
@@ -353,6 +356,9 @@ function _mediaClass(type) {
 	}
 	if (/flash/i.test(type)) {
 		return 'ke-flash';
+	}
+	if (/video/i.test(type)) {
+		return 'ke-video';
 	}
 	return 'ke-media';
 }
@@ -370,7 +376,27 @@ function _mediaEmbed(attrs) {
 	return html;
 }
 
+function _mediaVideo(attrs) {
+	var html = '<video ';
+	_each(attrs, function(key, val) {
+		if(key == 'width') {
+			html += 'width="100%" ';
+		} else if(key == 'height'){
+			
+		} else {
+			html += key + '="' + val + '" ';
+		}
+	});
+	html += ' controls="controls" />';
+	return html;
+}
+
 function _mediaImg(blankPath, attrs) {
+	// 如果是video，使用video来处理
+	if(attrs.type == 'video/mp4') {
+		return _mediaVideo(attrs);
+	}
+	
 	var width = attrs.width,
 		height = attrs.height,
 		type = attrs.type || _mediaType(attrs.src),
@@ -423,6 +449,7 @@ K.getAttrList = _getAttrList;
 K.mediaType = _mediaType;
 K.mediaAttrs = _mediaAttrs;
 K.mediaEmbed = _mediaEmbed;
+K.mediaVideo = _mediaVideo;
 K.mediaImg = _mediaImg;
 K.clearMsWord = _clearMsWord;
 K.tmpl = _tmpl;

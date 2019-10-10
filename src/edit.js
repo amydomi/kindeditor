@@ -39,7 +39,7 @@ function _getInitHtml(themesPath, bodyClass, cssPath, cssData) {
 		'	width:100px;',
 		'	height:100px;',
 		'}',
-		'img.ke-media {',
+		'img.ke-media,img.ke-video {',
 		'	border:1px solid #AAA;',
 		'	background-image:url(' + themesPath + 'common/media.gif);',
 		'	background-position:center center;',
